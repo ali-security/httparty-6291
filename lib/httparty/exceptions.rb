@@ -30,4 +30,8 @@ module HTTParty
 
   # Exception that is raised when request redirects and location header is present more than once
   class DuplicateLocationHeader < ResponseError; end
+
+  # Exception that is raised when an absolute URI is used that doesn't match
+  # the configured base_uri, which could indicate an SSRF attempt.
+  class UnsafeURIError < Error; end
 end
